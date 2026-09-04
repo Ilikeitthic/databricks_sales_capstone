@@ -3,6 +3,15 @@ resources:
     sales_job:
       name: sales_etl_job
 
+      trigger:
+        # Fires automatically whenever a new file lands in the volume folder.
+        # Databricks checks every 5 minutes; adjust min_time_between_triggers_seconds
+        # (minimum 60 s) to control how soon back-to-back arrivals re-trigger the job.
+        file_arrival:
+          url: /Volumes/workspace/default/sales_data/
+          min_time_between_triggers_seconds: 300   # 5 minutes cool-down
+          wait_after_last_change_seconds: 60        # wait 60 s after last write before firing
+
       environments:
         - environment_key: serverless
           spec:
