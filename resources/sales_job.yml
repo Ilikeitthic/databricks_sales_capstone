@@ -5,11 +5,11 @@ resources:
 
       trigger:
         # Fires automatically whenever a new file lands in the volume folder.
-        # Databricks checks every 5 minutes; adjust min_time_between_triggers_seconds
-        # (minimum 60 s) to control how soon back-to-back arrivals re-trigger the job.
+        # pause_status must be UNPAUSED — dev mode pauses triggers by default.
+        pause_status: UNPAUSED
         file_arrival:
           url: /Volumes/workspace/default/sales_data/
-          min_time_between_triggers_seconds: 300   # 5 minutes cool-down
+          min_time_between_triggers_seconds: 60   # 1 minute cool-down
           wait_after_last_change_seconds: 60        # wait 60 s after last write before firing
 
       environments:
