@@ -14,7 +14,7 @@ resources:
         - task_key: data_quality_report
           job_cluster_key: sales_cluster
           notebook_task:
-            notebook_path: ./src/00_data_quality_report.ipynb
+            notebook_path: ../src/00_data_quality_report.ipynb
             source: WORKSPACE
 
         - task_key: bronze_ingestion
@@ -22,7 +22,7 @@ resources:
             - task_key: data_quality_report
           job_cluster_key: sales_cluster
           notebook_task:
-            notebook_path: ./src/01_bronze_ingestion.ipynb
+            notebook_path: ../src/01_bronze_ingestion.ipynb
             source: WORKSPACE
 
         - task_key: silver_cleaning
@@ -30,7 +30,7 @@ resources:
             - task_key: bronze_ingestion
           job_cluster_key: sales_cluster
           notebook_task:
-            notebook_path: ./src/02_silver_cleaning.ipynb
+            notebook_path: ../src/02_silver_cleaning.ipynb
             source: WORKSPACE
 
         - task_key: gold_analytics
@@ -38,5 +38,5 @@ resources:
             - task_key: silver_cleaning
           job_cluster_key: sales_cluster
           notebook_task:
-            notebook_path: ./src/03_gold_analytics.ipynb
+            notebook_path: ../src/03_gold_analytics.ipynb
             source: WORKSPACE
