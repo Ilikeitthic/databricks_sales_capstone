@@ -3,6 +3,10 @@ resources:
     sales_job:
       name: sales_etl_job
 
+      environments:
+        - environment_key: serverless
+          spec:
+            client: "2"
 
       tasks:
         - task_key: data_quality_report
